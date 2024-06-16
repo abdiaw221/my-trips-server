@@ -156,7 +156,7 @@ public class EntryController {
 
 	@Operation(summary = "Get user info", security = @SecurityRequirement(name = "jwtToken"))
 	@ApiResponse(content = @Content(schema = @Schema(implementation = User.class)), responseCode = "200")
-	@GetMapping("/me")
+	@GetMapping("/user/me")
 	public ResponseEntity<Response> getUserInfo() {
 		return Response.getResponseEntity(
 				true,"User info loaded",

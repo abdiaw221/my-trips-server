@@ -162,7 +162,7 @@ public final class AppUtils {
 			return false;
 		}
 
-		SimpleDateFormat sdf = new SimpleDateFormat(AppConstants.DEFAULTDATEFORMAT);
+		SimpleDateFormat sdf = new SimpleDateFormat(AppConstants.DEFAULT_DATE_FORMAT);
 		sdf.setLenient(false);
 		
 		try {

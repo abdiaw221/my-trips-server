@@ -14,35 +14,26 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-@SecurityScheme(
-        name = "jwtToken",
-        scheme = "bearer",
-        type = SecuritySchemeType.HTTP
-)
+@SecurityScheme(name = "jwtToken", scheme = "bearer", type = SecuritySchemeType.HTTP)
 class SwaggerConfig {
+  @Autowired private AppProperties appProperties;
 
-//        @Value("${app.name}")
-//        private String appName;
+  @Bean
+  public OpenAPI springShopOpenAPI() {
+    String appName = appProperties.getName();
 
-        @Autowired
-        private AppProperties appProperties;
+    Info info = new Info();
+    info.title(appName + " API");
+    info.description(appName + " API Documentation");
+    info.version("Version 1.0.0");
+    info.license(new License().name("Apache 2.0").url("https://springdoc.org"));
 
-        @Bean
-        public OpenAPI springShopOpenAPI() {
-                String appName = appProperties.getName();
+    Server server = new Server();
+    server.setUrl(appProperties.getBackEndUrl());
 
-                Info info = new Info();
-                info.title(appName + " API");
-                info.description(appName + " API Documentation");
-                info.version("Version 1.0.0");
-                info.license(new License().name("Apache 2.0").url("https://springdoc.org"));
-
-                Server server = new Server();
-                server.setUrl(appProperties.getBackEndUrl());
-
-                return new OpenAPI()
-                        .info(info)
-                        .externalDocs(new ExternalDocumentation())
-                        .servers(List.of(server));
-        }
+    return new OpenAPI()
+        .info(info)
+        .externalDocs(new ExternalDocumentation())
+        .servers(List.of(server));
+  }
 }

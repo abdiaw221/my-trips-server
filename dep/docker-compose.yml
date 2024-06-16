@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: "${POSTGRES_DOCKER_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_DOCKER_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DOCKER_DATABASE}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    ports:
+      - "${POSTGRES_DOCKER_PORT}:${POSTGRES_LOCAL_PORT}"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "${PG_ADMIN_EMAIL}"
+      PGADMIN_DEFAULT_PASSWORD: "${PG_ADMIN_PASSWORD}"
+    ports:
+      - "${PG_ADMIN_DOCKER_PORT}:${PG_ADMIN_LOCAL_PORT}"
+    depends_on:
+      - postgres
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.6
+    command: start
+    environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT_BACKCHANNEL: false
+      KC_HTTP_ENABLED: true
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KC_HEALTH_ENABLED: true
+      KEYCLOAK_ADMIN: ${KEYCLOAK_USER}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_PASSWORD}
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres/${POSTGRES_DOCKER_DATABASE}
+      KC_DB_USERNAME: ${POSTGRES_DOCKER_USER}
+      KC_DB_PASSWORD: ${POSTGRES_DOCKER_PASSWORD}
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - postgres
+    networks:
+      - keycloak_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  keycloak_network:
+    driver: bridge

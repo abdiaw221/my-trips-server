@@ -11,9 +11,9 @@ public final class AppConstants {
 		production
 	}
 
-	public static String DEFAULTDATEFORMAT = "dd-MMM-yy";
+	public static String DEFAULT_DATE_FORMAT = "dd-MMM-yy";
 
-	public static String INITIAL_USERNAME = "super_admin@disl.com";
+	public static String INITIAL_USERNAME = "admin@trip.com";
 	public static String INITIAL_PASSWORD = "123456";
 	
 	public static String INITIAL_ROLE = "SUPER ADMIN";
