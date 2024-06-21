@@ -1,0 +1,9 @@
+FROM quay.io/keycloak/keycloak:23.0.6
+
+# Copy the entrypoint script and set executable permissions
+COPY keycloak-entrypoint.sh /opt/keycloak/bin/keycloak-entrypoint.sh
+
+RUN chmod +x /opt/keycloak/bin/keycloak-entrypoint.sh
+
+# Copy the realm JSON file
+COPY my-realm.json /opt/keycloak/data/import/my-realm.json

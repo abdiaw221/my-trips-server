@@ -1,8 +1,8 @@
-version: '3.8'
+version: "4"
 
 services:
   postgres:
-    image: postgres:13
+    image: postgres:16.3
     container_name: postgres
     environment:
       POSTGRES_USER: "${POSTGRES_DOCKER_USER}"
@@ -26,28 +26,40 @@ services:
       - postgres
 
   keycloak:
-    image: quay.io/keycloak/keycloak:23.0.6
+    image: quay.io/keycloak/keycloak:25.0.1
+    container_name: keycloak
+    build:
+      context: .
+      dockerfile: Dockerfile.keycloak
     command: start
     environment:
-      KC_HOSTNAME: localhost
-      KC_HOSTNAME_PORT: 8080
+      KEYCLOAK_USER: "${KEYCLOAK_USER}"
+      KEYCLOAK_PASSWORD: "${KEYCLOAK_PASSWORD}"
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: "${POSTGRES_DOCKER_DATABASE}"
+      DB_USER: "${POSTGRES_DOCKER_USER}"
+      DB_PASSWORD: "${POSTGRES_DOCKER_PASSWORD}"
+
+      KC_HOSTNAME: ${KEYCLOAK_HOST}
+      KC_HOSTNAME_PORT: ${KEYCLOAK_DOCKER_PORT}
       KC_HOSTNAME_STRICT_BACKCHANNEL: false
       KC_HTTP_ENABLED: true
       KC_HOSTNAME_STRICT_HTTPS: false
       KC_HEALTH_ENABLED: true
       KEYCLOAK_ADMIN: ${KEYCLOAK_USER}
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_PASSWORD}
-      KC_DB: postgres
-      KC_DB_URL: jdbc:postgresql://postgres/${POSTGRES_DOCKER_DATABASE}
-      KC_DB_USERNAME: ${POSTGRES_DOCKER_USER}
-      KC_DB_PASSWORD: ${POSTGRES_DOCKER_PASSWORD}
     ports:
-      - 8080:8080
+      - "${KEYCLOAK_DOCKER_PORT}:${KEYCLOAK_LOCAL_PORT}"
     restart: always
     depends_on:
       - postgres
     networks:
       - keycloak_network
+    volumes:
+      - ./my-realm.json:/opt/keycloak/data/import/my-realm.json
+      - ./keycloak-entrypoint.sh:/opt/keycloak/bin/keycloak-entrypoint.sh
+    entrypoint: [ "/opt/keycloak/bin/keycloak-entrypoint.sh" ]
 
 volumes:
   postgres_data:
