@@ -1,45 +1,57 @@
-# SpringBoot Starter Project
-Java Spring Boot based boilerplate starter application with Spring Security (JWT), Swagger and Logging and many more.
 
-## How to use/modify this project
+# Organization
 
-**Step 1:**  Clone and open the project in ```Intellij Idea``` or any other Java (Spring) supported IDE. Right-click on the project's root folder then rename the project by navigating ```project_root/Refactor/Rename```
+This project contains all that's needed to build, run and deploy the backend.
 
-![1](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/ab06fc6a-c3f1-4683-9191-6b7a742d31a9)
+```
+/dep            usefull dependencies for running the service locally
+/docs           docs (in progress) and tools
+/.mvn           maven dependencies
+/src            project sources
+```
 
-**Step 2:** Open your project from your file system then rename the project folder name
+# Setup
 
-![2](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/e603e8d8-92d0-42fa-b00b-d93ab6ffbe6c)
+## Building and running locally
 
-**Step 3:** Navigate to the project's package name (```project_root/src/main/java```) then rename the package
+To build and run the project, you need the following environment:
 
-![3](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/d533e9d4-ba58-48d2-9848-8f7b30f1af56)
+- JDK 21 or higher
+- docker
+- docker-compose
 
-**Step 4:** Navigate to ```project_root/src/main/java/package_name``` then rename the ```StarterApplication.java``` and ```StarterApplicationTests.java``` class name
+You can also set runtime properties by adding them in the `.config-local/local.properties` file.
 
-![4](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/d93db833-6b80-470a-91d5-be38df8124bf)
+# Running
 
-**Step 5:** Open the ```pom.xml file``` then change the value of ```groupId```, ```artifactId```, ```name``` and ```description``` field
+To run locally:
 
-![5](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/39263cc9-2043-4e2c-8e4f-87b27a0ed26a)
+1) you need to launch the external services (MySQL, ...) as following:
 
-**Step 6:** Navigate to ```src/main/java/com/disl/starter/constants/SecurityConstants.java``` then Change the ```SECRET``` field's value
+```
+docker-compose -f dep/docker-compose.yml up -d
+```
+you need to restart it with option --force-recreate.
 
-![6](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/ea4e3873-62fc-4fe9-b9da-9066df34831d)
+```
+docker-compose -f dep/docker-compose.yml up --force-recreate -d
+```
 
-**Step 7:** Navigate to ```project_root/src/main/resources``` and open ```application-development.properties```, ```application-staging.properties``` and ```application-production.properties``` file then change ```datasource``` and ```mail``` related values.
+2) set the Provider service file in `.config-local`; this file is not included in the project for security reasons.
 
-![7](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/57b7dd24-4db4-4dda-bf43-df80bec8d9c8)
+3) configure properties in `.config-local/local.properties`; especially, the `smart.content.generate=true` directive will create some test data to start; don't forget to put it to false after.
 
+4) run the project via any of the following method:
 
-**Step 8:** Navigate to ```project_root/src/main/resources``` and open ```application.properties```, then uncomment your required ```spring.profiles.active``` profile/property. You can also change the ```fcm``` related values (if needed)
+- launching the `Application` class in IntelliJ (need to provide the VM options `-Dspring.profiles.active=local` in the launch configuration)
 
-![8](https://github.com/dhrubokinfotech/springboot-starter/assets/26526539/3277e7b2-469e-46d7-b51f-26ef2c9cb7f0)
+## Postman
 
-**Step 9:** Finally run the project.
+A shared collection is available in this folder with all the API calls registered. Use [PMS](http://localhost:8080/pms) to get it. The collection integrates a pre-request script that will automatically gather an authentication token before each request.
 
-## Note
-Spring Boot 3 required at least ```Java version 17```. So make sure you have installed the 17 or greater version.
+## API doc
 
-
-
+A Swagger documentation is generated at runtime by SpringDoc at
+```
+http://localhost:8080/docs/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
+```

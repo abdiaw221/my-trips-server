@@ -6,7 +6,7 @@ WORKDIR /app/
 RUN apt-get update && \
       apt-get install -y --no-install-recommends
 
-COPY pom.xml .
+COPY services/application/pom.xml .
 COPY /src src
 
 RUN mvn clean package -DskipTests

@@ -11,6 +11,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - pg_network
     ports:
       - "${POSTGRES_DOCKER_PORT}:${POSTGRES_LOCAL_PORT}"
 
@@ -24,6 +26,11 @@ services:
       - "${PG_ADMIN_DOCKER_PORT}:${PG_ADMIN_LOCAL_PORT}"
     depends_on:
       - postgres
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    restart: unless-stopped
+    networks:
+      - pg_network
 
   keycloak:
     image: quay.io/keycloak/keycloak:25.0.1
@@ -40,31 +47,76 @@ services:
       DB_DATABASE: "${POSTGRES_DOCKER_DATABASE}"
       DB_USER: "${POSTGRES_DOCKER_USER}"
       DB_PASSWORD: "${POSTGRES_DOCKER_PASSWORD}"
-
-      KC_HOSTNAME: ${KEYCLOAK_HOST}
-      KC_HOSTNAME_PORT: ${KEYCLOAK_DOCKER_PORT}
+      KC_HOSTNAME: "${KEYCLOAK_HOST}"
+      KC_HOSTNAME_PORT: "${KEYCLOAK_DOCKER_PORT}"
       KC_HOSTNAME_STRICT_BACKCHANNEL: false
       KC_HTTP_ENABLED: true
       KC_HOSTNAME_STRICT_HTTPS: false
       KC_HEALTH_ENABLED: true
-      KEYCLOAK_ADMIN: ${KEYCLOAK_USER}
-      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_PASSWORD}
+      KEYCLOAK_ADMIN: "${KEYCLOAK_USER}"
+      KEYCLOAK_ADMIN_PASSWORD: "${KEYCLOAK_PASSWORD}"
     ports:
       - "${KEYCLOAK_DOCKER_PORT}:${KEYCLOAK_LOCAL_PORT}"
     restart: always
     depends_on:
       - postgres
     networks:
-      - keycloak_network
+      - kc_network
     volumes:
       - ./my-realm.json:/opt/keycloak/data/import/my-realm.json
       - ./keycloak-entrypoint.sh:/opt/keycloak/bin/keycloak-entrypoint.sh
     entrypoint: [ "/opt/keycloak/bin/keycloak-entrypoint.sh" ]
 
+  mail-dev:
+    container_name: mail_dev
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_ROOT_USER}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_ROOT_PASSWORD}"
+      MONGO_INITDB_DATABASE: trip_db
+    networks:
+      - mongo_network
+    volumes:
+      - mongo-data:/data/db
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo-db
+      ME_CONFIG_MONGODB_ADMINUSERNAME: "${MONGO_ROOT_USER}"
+      ME_CONFIG_MONGODB_ADMINPASSWORD: "${MONGO_ROOT_PASSWORD}"
+      ME_CONFIG_BASICAUTH_USERNAME: "${MONGOEXPRESS_LOGIN}"
+      ME_CONFIG_BASICAUTH_PASSWORD: "${MONGOEXPRESS_PASSWORD}"
+      ME_CONFIG_MONGODB_PORT: 27017
+    depends_on:
+      - mongo
+    networks:
+      - mongo_network
+    volumes:
+      - mongo-data:/data/db
+
 volumes:
   postgres_data:
     driver: local
+  pgadmin:
+  mongo-data:
 
 networks:
-  keycloak_network:
+  mongo_network:
+    driver: bridge
+  pg_network:
+    driver: bridge
+  kc_network:
     driver: bridge

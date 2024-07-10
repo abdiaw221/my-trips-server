@@ -1,6 +1,7 @@
 package com.disl.starter.security;
 
-import com.disl.starter.constants.SecurityConstants;
+import static com.disl.starter.utils.SecurityUtil.FilterChainUtil;
+
 import com.disl.starter.exceptions.AuthenticationExceptionHandler;
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,18 +16,12 @@ import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-
-import static com.disl.starter.utils.SecurityUtil.FilterChainUtil;
 
 @Configuration
 @EnableWebSecurity
