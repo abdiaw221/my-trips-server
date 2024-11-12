@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "com.disl.starter.config.AppProperties",
+      "sourceType": "com.disl.starter.config.AppProperties"
+    },
+    {
+      "name": "jwt.auth.converter",
+      "type": "com.disl.starter.security.keycloak.JwtConverterProperties",
+      "sourceType": "com.disl.starter.security.keycloak.JwtConverterProperties"
+    },
+    {
+      "name": "spring.mail.properties.mail.smtp",
+      "type": "com.disl.starter.config.EmailProperties",
+      "sourceType": "com.disl.starter.config.EmailProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.back-end-url",
+      "type": "java.lang.String",
+      "sourceType": "com.disl.starter.config.AppProperties"
+    },
+    {
+      "name": "app.name",
+      "type": "java.lang.String",
+      "sourceType": "com.disl.starter.config.AppProperties"
+    },
+    {
+      "name": "jwt.auth.converter.principal-attribute",
+      "type": "java.lang.String",
+      "sourceType": "com.disl.starter.security.keycloak.JwtConverterProperties"
+    },
+    {
+      "name": "jwt.auth.converter.resource-id",
+      "type": "java.lang.String",
+      "sourceType": "com.disl.starter.security.keycloak.JwtConverterProperties"
+    },
+    {
+      "name": "spring.mail.properties.mail.smtp.from",
+      "type": "java.lang.String",
+      "sourceType": "com.disl.starter.config.EmailProperties"
+    }
+  ],
+  "hints": []
+}

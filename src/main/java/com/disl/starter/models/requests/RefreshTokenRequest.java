@@ -1,13 +1,11 @@
 package com.disl.starter.models.requests;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class RefreshTokenRequest {
     private String refreshTokenId;
 
-    public String getRefreshTokenId() {
-        return refreshTokenId;
-    }
-
-    public void setRefreshTokenId(String refreshTokenId) {
-        this.refreshTokenId = refreshTokenId;
-    }
 }

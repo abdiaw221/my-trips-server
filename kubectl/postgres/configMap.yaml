@@ -3,13 +3,11 @@ kind: ConfigMap
 metadata:
   name: env-config
 data:
-  POSTGRES_USER: ${POSTGRES_DOCKER_USER}
-  POSTGRES_PASSWORD: ${POSTGRES_DOCKER_PASSWORD}
-  POSTGRES_DB: ${POSTGRES_DOCKER_DATABASE}
-  PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
-  PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASSWORD}
-  KEYCLOAK_USER: ${KEYCLOAK_USER}
-  KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
-  KEYCLOAK_HOST: ${KEYCLOAK_HOST}
-  KEYCLOAK_DOCKER_PORT: "${KEYCLOAK_DOCKER_PORT}"
-  KEYCLOAK_LOCAL_PORT: "${KEYCLOAK_LOCAL_PORT}"
+  postgres-entrypoint.sh: |
+    #!/bin/bash
+    # Ensure all necessary environment variables are set
+    : "${POSTGRES_USER:?POSTGRES_USER environment variable is required}"
+    : "${POSTGRES_PASSWORD:?POSTGRES_PASSWORD environment variable is required}"
+    : "${POSTGRES_DB:?POSTGRES_DB environment variable is required}"
+    : "${PGADMIN_DEFAULT_EMAIL:?PGADMIN_DEFAULT_EMAIL environment variable is required}"
+    : "${PGADMIN_DEFAULT_PASSWORD:?PGADMIN_DEFAULT_PASSWORD environment variable is required}"

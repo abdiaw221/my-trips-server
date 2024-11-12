@@ -1,0 +1,855 @@
+2024-10-25T16:41:41.644+01:00  INFO 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Starting StarterApplication using Java 21.0.2 with PID 15067 (/Users/ababacar/apps_sources/my_trips/trips-server/target/classes started by ababacar in /Users/ababacar/apps_sources/my_trips/trips-server)
+2024-10-25T16:41:41.645+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Running with Spring Boot v3.3.3, Spring v6.1.12
+2024-10-25T16:41:41.645+01:00  INFO 15067 --- [restartedMain] com.disl.starter.StarterApplication      : The following 1 profile is active: "development"
+2024-10-25T16:41:41.664+01:00  INFO 15067 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-25T16:41:41.664+01:00  INFO 15067 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-25T16:41:42.009+01:00  INFO 15067 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-25T16:41:42.038+01:00  INFO 15067 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 9 JPA repository interfaces.
+2024-10-25T16:41:42.337+01:00  INFO 15067 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-10-25T16:41:42.342+01:00  INFO 15067 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-25T16:41:42.342+01:00  INFO 15067 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-25T16:41:42.357+01:00  INFO 15067 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-25T16:41:42.358+01:00  INFO 15067 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 694 ms
+2024-10-25T16:41:42.590+01:00  INFO 15067 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-25T16:41:42.601+01:00  INFO 15067 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-25T16:41:42.658+01:00  INFO 15067 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6dbff2f3
+2024-10-25T16:41:42.658+01:00  INFO 15067 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-25T16:41:43.165+01:00  INFO 15067 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T16:41:43.338+01:00 DEBUG 15067 --- [restartedMain] .JwtAuthenticationFilter$$SpringCGLIB$$0 : Filter 'jwtAuthenticationFilter' configured for use
+2024-10-25T16:41:43.338+01:00 DEBUG 15067 --- [restartedMain] o.springframework.web.filter.CorsFilter  : Filter 'corsConfigurationFilterSource' configured for use
+2024-10-25T16:41:43.457+01:00  INFO 15067 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-10-25T16:41:43.458+01:00  WARN 15067 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-25T16:41:43.574+01:00  INFO 15067 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-25T16:41:43.824+01:00 DEBUG 15067 --- [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8080/realms/trip/.well-known/openid-configuration
+2024-10-25T16:41:43.829+01:00 DEBUG 15067 --- [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-25T16:41:43.892+01:00 DEBUG 15067 --- [restartedMain] o.s.web.client.RestTemplate              : Response 200 OK
+2024-10-25T16:41:43.893+01:00 DEBUG 15067 --- [restartedMain] o.s.web.client.RestTemplate              : Reading to [java.util.Map<java.lang.String, java.lang.Object>]
+2024-10-25T16:41:44.013+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.EntryController:
+	{GET [/api/user/me]}: getUserInfo()
+	{POST [/api/admin-user-create]}: createAdminUser(AdminCreationRequest)
+	{POST [/api/sign-in]}: authenticateUser(SignInRequest)
+	{GET [/api/user/all]}: getAllPaginatedUsers(int,int,String,AscOrDescType,Map)
+	{POST [/api/forget-password]}: requestForgetPassword(InitialForgetPasswordRequest)
+	{POST [/api/change-password]}: changePassword(ChangePasswordRequest)
+	{POST [/api/sign-up]}: createUser(SignUpRequest)
+	{GET [/api/user/id/{userId}]}: findUserById(long)
+	{PUT [/api/user/info/update]}: updateUserInfo(UpdateUserInfoRequest)
+	{PUT [/api/update-user-from-admin]}: updateUserInfo(UpdateUserFromAdmin)
+	{POST [/api/refresh-token]}: refreshToken(RefreshTokenRequest)
+	{GET [/api/oauth2/login]}: socialLogin(SocialAuthType,String)
+	{PUT [/api/user/update-banned-status]}: updateBannedStatusManually(UpdateBannedStatusRequest)
+	{PUT [/api/user/update-verify-status]}: updateVerifyStatusManually(UpdateVerifyStatusRequest)
+2024-10-25T16:41:44.017+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.LogfileController:
+	{GET [/api/log-file/logfiles]}: getLog(int,int,String)
+	{GET [/api/log-file/download]}: downloadFile(String)
+	{DELETE [/api/log-file/delete]}: deleteFile(String,long)
+2024-10-25T16:41:44.017+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.PrivilegeController:
+	{GET [/api/privilege]}: getAllPrivileges()
+2024-10-25T16:41:44.018+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.RoleController:
+	{GET [/api/role/all]}: getPaginatedRoles(int,int,String,AscOrDescType,Map)
+	{DELETE [/api/role/{roleId}]}: deleteRole(long)
+	{PUT [/api/role/update]}: updateRole(RoleUpdateRequest)
+	{GET [/api/role/users]}: getUserRoles(String)
+	{GET [/api/role/types]}: getRoleTypes()
+	{GET [/api/role/total]}: getTotalRoles(String)
+	{GET [/api/role/{id}]}: getRoleById(long)
+	{POST [/api/role/create]}: createRole(RoleCreateRequest)
+2024-10-25T16:41:44.019+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.a.ForgetPasswordController:
+	{GET [/resetpassword], produces [text/html]}: resetPasswordHTML(Model,String)
+	{POST [/pass-reset], produces [text/html]}: resetPass(ForgetPassRequest,BindingResult,Model)
+2024-10-25T16:41:44.020+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.a.VerificationController:
+	{GET [/verify], produces [text/html]}: userVerifyHtml(Model,String)
+2024-10-25T16:41:44.021+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.c.c.PageController:
+	{PUT [/api/page/update]}: update(CreateUpdatePageRequest)
+	{POST [/api/page/create]}: create(CreateUpdatePageRequest)
+	{PUT [/api/page/{pageId}/section/update]}: updateSectionByPage(long,CreateUpdateSectionRequest)
+	{GET [/api/page/all]}: getAllPagePaginated(int,int,String,AscOrDescType,Boolean)
+	{DELETE [/api/page/{pageId}/delete/{sectionId}]}: deleteSectionByPage(long,long)
+	{GET [/api/page/{pageId}/section/id/{sectionId}]}: findSectionById(long,long)
+	{POST [/api/page/{pageId}/section/add]}: addSectionIntoPage(long,CreateUpdateSectionRequest)
+	{GET [/api/page/tag/{tag}]}: findByTag(String,Boolean,String,Boolean,String)
+	{DELETE [/api/page/delete/{pageId}]}: deletePage(long)
+	{GET [/api/page/total]}: getTotal(Boolean)
+	{GET [/api/page/predefine-tags]}: predefineTags()
+2024-10-25T16:41:44.023+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.d.c.DbFileController:
+	{GET [/api/db-file/id/{id}]}: getFile(long)
+	{POST [/api/db-file/upload], consumes [multipart/form-data]}: uploadFile(MultipartFile,FileUploadType,String)
+2024-10-25T16:41:44.023+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.n.c.NotificationController:
+	{POST [/api/notification/mark-as-read]}: markNotificationAsRead()
+	{POST [/api/notification/create-and-push]}: Create(SendNotificationRequest)
+	{GET [/api/notification/unread-counter]}: getUnreadNotificationCounter()
+	{GET [/api/notification/all]}: getAllNotificationByUserType(int,int,String,AscOrDescType)
+2024-10-25T16:41:44.024+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.DashboardController:
+	{GET [/dashboard]}: getDashboard()
+2024-10-25T16:41:44.024+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.LoginController:
+	{GET [/login-error]}: errorLogin(Map)
+	{GET [/login]}: login()
+2024-10-25T16:41:44.024+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.StarterErrorController:
+	{GET [/permission-denied]}: permissionDenied()
+	{ [/error], produces [text/html]}: handleError(HttpServletRequest)
+2024-10-25T16:41:44.029+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+2024-10-25T16:41:44.030+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2024-10-25T16:41:44.030+01:00 TRACE 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2024-10-25T16:41:44.031+01:00 DEBUG 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 55 mappings in 'requestMappingHandlerMapping'
+2024-10-25T16:41:44.045+01:00 DEBUG 15067 --- [restartedMain] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2024-10-25T16:41:44.054+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2024-10-25T16:41:44.062+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/resources/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.062+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/static/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/css/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/js/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/images/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/scripts/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/build/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/dist/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/docs/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/*swagger-initializer.js] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-25T16:41:44.063+01:00 TRACE 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-25T16:41:44.063+01:00 DEBUG 15067 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/resources/**, /static/**, /css/**, /js/**, /images/**, /webjars/**, /scripts/**, /build/**, /dist/**, /docs/**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-10-25T16:41:44.130+01:00  INFO 15067 --- [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-10-25T16:41:44.136+01:00 DEBUG 15067 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthenticationFilter$$SpringCGLIB$$0, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-25T16:41:44.169+01:00 DEBUG 15067 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-25T16:41:44.188+01:00 DEBUG 15067 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 4 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-25T16:41:44.379+01:00  INFO 15067 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-25T16:41:44.402+01:00  INFO 15067 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-10-25T16:41:44.409+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_CREATE]
+2024-10-25T16:41:44.455+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@f06d74f
+2024-10-25T16:41:44.455+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_UPDATE]
+2024-10-25T16:41:44.456+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@72e20b24
+2024-10-25T16:41:44.456+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_DELETE]
+2024-10-25T16:41:44.457+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@3e84da88
+2024-10-25T16:41:44.457+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_DELETE]
+2024-10-25T16:41:44.458+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@16fb86da
+2024-10-25T16:41:44.458+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_CREATE]
+2024-10-25T16:41:44.459+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@7a9d6f20
+2024-10-25T16:41:44.459+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE]
+2024-10-25T16:41:44.460+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@478ece02
+2024-10-25T16:41:44.460+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [GENERAL]
+2024-10-25T16:41:44.461+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@62df2207
+2024-10-25T16:41:44.461+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_READ]
+2024-10-25T16:41:44.462+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@6e6a38b6
+2024-10-25T16:41:44.462+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [NOTIFICATION_SEND]
+2024-10-25T16:41:44.463+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@26f3685b
+2024-10-25T16:41:44.463+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_READ]
+2024-10-25T16:41:44.464+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@22c1a419
+2024-10-25T16:41:44.464+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE_FROM_ADMIN]
+2024-10-25T16:41:44.465+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@5c9c0785
+2024-10-25T16:41:44.465+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T16:41:44.472+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@33d2512c
+2024-10-25T16:41:44.472+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T16:41:44.475+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@668255dd
+2024-10-25T16:41:44.475+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.saveRole() with argument[s] = [com.disl.starter.entities.Role@668255dd]
+2024-10-25T16:41:44.486+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.saveRole() with result = com.disl.starter.entities.Role@54e02e74
+2024-10-25T16:41:44.486+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.findByEmail() with argument[s] = [admin@trip.com]
+2024-10-25T16:41:44.495+01:00 DEBUG 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.findByEmail() with result = com.disl.starter.entities.User@150fcd88
+2024-10-25T16:41:44.496+01:00  INFO 15067 --- [restartedMain] com.disl.starter.StarterApplication      : Started StarterApplication in 3.126 seconds (process running for 3.457)
+2024-10-25T16:54:06.094+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_CREATE]
+2024-10-25T16:54:06.130+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6dbff2f3 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.132+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1acbcc0e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.133+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1154d8d9 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.134+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3603acd5 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.135+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@29328093 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.135+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6d5d8207 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.136+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5af80d65 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.136+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@713667eb (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.137+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4c3d5746 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.137+01:00  WARN 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4df1b97c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2024-10-25T16:54:06.192+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@3312d83e
+2024-10-25T16:54:06.192+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_UPDATE]
+2024-10-25T16:54:06.194+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@3c21f330
+2024-10-25T16:54:06.194+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_DELETE]
+2024-10-25T16:54:06.196+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@1f00e9f2
+2024-10-25T16:54:06.196+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_DELETE]
+2024-10-25T16:54:06.198+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@295d9d86
+2024-10-25T16:54:06.198+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_CREATE]
+2024-10-25T16:54:06.200+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@763b06b2
+2024-10-25T16:54:06.200+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE]
+2024-10-25T16:54:06.202+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@46c883a1
+2024-10-25T16:54:06.202+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [GENERAL]
+2024-10-25T16:54:06.204+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@133ea48a
+2024-10-25T16:54:06.204+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_READ]
+2024-10-25T16:54:06.208+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@7c66be6d
+2024-10-25T16:54:06.208+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [NOTIFICATION_SEND]
+2024-10-25T16:54:06.211+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@5a080bae
+2024-10-25T16:54:06.211+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_READ]
+2024-10-25T16:54:06.213+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@14d0193d
+2024-10-25T16:54:06.213+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE_FROM_ADMIN]
+2024-10-25T16:54:06.216+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@396b55f1
+2024-10-25T16:54:06.216+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T16:54:06.232+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@11bee654
+2024-10-25T16:54:06.232+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T16:54:06.238+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@7656879
+2024-10-25T16:54:06.239+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.saveRole() with argument[s] = [com.disl.starter.entities.Role@7656879]
+2024-10-25T16:54:06.247+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.saveRole() with result = com.disl.starter.entities.Role@1a54aaee
+2024-10-25T16:54:06.247+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.findByEmail() with argument[s] = [admin@trip.com]
+2024-10-25T16:54:06.256+01:00 DEBUG 15067 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.findByEmail() with result = com.disl.starter.entities.User@416ffebe
+2024-10-25T16:54:06.283+01:00  INFO 15067 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T16:54:06.286+01:00  INFO 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-25T16:54:06.311+01:00  INFO 15067 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-25T16:55:07.516+01:00  INFO 15446 --- [restartedMain] com.disl.starter.StarterApplication      : Starting StarterApplication using Java 21.0.2 with PID 15446 (/Users/ababacar/apps_sources/my_trips/trips-server/target/classes started by ababacar in /Users/ababacar/apps_sources/my_trips/trips-server)
+2024-10-25T16:55:07.516+01:00 DEBUG 15446 --- [restartedMain] com.disl.starter.StarterApplication      : Running with Spring Boot v3.3.3, Spring v6.1.12
+2024-10-25T16:55:07.517+01:00  INFO 15446 --- [restartedMain] com.disl.starter.StarterApplication      : The following 1 profile is active: "development"
+2024-10-25T16:55:07.534+01:00  INFO 15446 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-25T16:55:07.534+01:00  INFO 15446 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-25T16:55:07.871+01:00  INFO 15446 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-25T16:55:07.895+01:00  INFO 15446 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 9 JPA repository interfaces.
+2024-10-25T16:55:08.185+01:00  INFO 15446 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-10-25T16:55:08.190+01:00  INFO 15446 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-25T16:55:08.190+01:00  INFO 15446 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-25T16:55:08.204+01:00  INFO 15446 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-25T16:55:08.205+01:00  INFO 15446 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 670 ms
+2024-10-25T16:55:08.405+01:00  INFO 15446 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-25T16:55:08.413+01:00  INFO 15446 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-25T16:55:08.483+01:00  INFO 15446 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6117da29
+2024-10-25T16:55:08.483+01:00  INFO 15446 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-25T16:55:08.995+01:00  INFO 15446 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T16:55:09.149+01:00 DEBUG 15446 --- [restartedMain] .JwtAuthenticationFilter$$SpringCGLIB$$0 : Filter 'jwtAuthenticationFilter' configured for use
+2024-10-25T16:55:09.149+01:00 DEBUG 15446 --- [restartedMain] o.springframework.web.filter.CorsFilter  : Filter 'corsConfigurationFilterSource' configured for use
+2024-10-25T16:55:09.263+01:00  INFO 15446 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-10-25T16:55:09.263+01:00  WARN 15446 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-25T16:55:09.378+01:00  INFO 15446 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-25T16:55:09.626+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8080/realms/trip/.well-known/openid-configuration
+2024-10-25T16:55:09.631+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-25T16:55:09.778+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+2024-10-25T16:55:09.782+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8080/.well-known/openid-configuration/realms/trip
+2024-10-25T16:55:09.782+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-25T16:55:09.784+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+2024-10-25T16:55:09.784+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8080/.well-known/oauth-authorization-server/realms/trip
+2024-10-25T16:55:09.785+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-25T16:55:09.786+01:00 DEBUG 15446 --- [restartedMain] o.s.web.client.RestTemplate              : Response 404 NOT_FOUND
+2024-10-25T16:55:09.787+01:00  WARN 15446 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through field 'httpSecurity': Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration': Unsatisfied dependency expressed through method 'setContentNegotiationStrategy' parameter 0: Error creating bean with name 'org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.OAuth2ClientConfiguration$OAuth2ClientWebMvcSecurityConfiguration': Unsatisfied dependency expressed through method 'setAuthorizedClientManager' parameter 0: Error creating bean with name 'OAuth2AuthorizedClientManager': Failed to instantiate [org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager]: Factory method 'getAuthorizedClientManager' threw exception with message: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+2024-10-25T16:55:09.787+01:00  INFO 15446 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T16:55:09.788+01:00  INFO 15446 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-25T16:55:09.789+01:00  INFO 15446 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-25T16:55:09.791+01:00  INFO 15446 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-10-25T16:55:09.805+01:00 ERROR 15446 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through field 'httpSecurity': Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration': Unsatisfied dependency expressed through method 'setContentNegotiationStrategy' parameter 0: Error creating bean with name 'org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.OAuth2ClientConfiguration$OAuth2ClientWebMvcSecurityConfiguration': Unsatisfied dependency expressed through method 'setAuthorizedClientManager' parameter 0: Error creating bean with name 'OAuth2AuthorizedClientManager': Failed to instantiate [org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager]: Factory method 'getAuthorizedClientManager' threw exception with message: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.disl.starter.StarterApplication.main(StarterApplication.java:17)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.HttpSecurityConfiguration': Unsatisfied dependency expressed through method 'setContentNegotiationStrategy' parameter 0: Error creating bean with name 'org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.OAuth2ClientConfiguration$OAuth2ClientWebMvcSecurityConfiguration': Unsatisfied dependency expressed through method 'setAuthorizedClientManager' parameter 0: Error creating bean with name 'OAuth2AuthorizedClientManager': Failed to instantiate [org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager]: Factory method 'getAuthorizedClientManager' threw exception with message: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:896)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:849)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:409)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:355)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration': Unsatisfied dependency expressed through method 'setConfigurers' parameter 0: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.OAuth2ClientConfiguration$OAuth2ClientWebMvcSecurityConfiguration': Unsatisfied dependency expressed through method 'setAuthorizedClientManager' parameter 0: Error creating bean with name 'OAuth2AuthorizedClientManager': Failed to instantiate [org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager]: Factory method 'getAuthorizedClientManager' threw exception with message: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:896)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:849)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:409)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:888)
+	... 44 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.OAuth2ClientConfiguration$OAuth2ClientWebMvcSecurityConfiguration': Unsatisfied dependency expressed through method 'setAuthorizedClientManager' parameter 0: Error creating bean with name 'OAuth2AuthorizedClientManager': Failed to instantiate [org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager]: Factory method 'getAuthorizedClientManager' threw exception with message: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:896)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:849)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1511)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1392)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:888)
+	... 67 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'OAuth2AuthorizedClientManager': Failed to instantiate [org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager]: Factory method 'getAuthorizedClientManager' threw exception with message: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1511)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1392)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:888)
+	... 85 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager]: Factory method 'getAuthorizedClientManager' threw exception with message: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 102 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientRegistrationRepository' defined in class path resource [org/springframework/boot/autoconfigure/security/oauth2/client/servlet/OAuth2ClientRegistrationRepositoryConfiguration.class]: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:665)
+	at org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(BeanFactoryUtils.java:368)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanOfTypeIncludingAncestors(BeanFactoryUtils.java:446)
+	at org.springframework.security.config.annotation.web.configuration.OAuth2ClientConfiguration$OAuth2AuthorizedClientManagerRegistrar.getAuthorizedClientManager(OAuth2ClientConfiguration.java:233)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+	... 103 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository]: Factory method 'clientRegistrationRepository' threw exception with message: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 119 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Unable to resolve Configuration with the provided Issuer of "http://localhost:8080/realms/trip"
+	at org.springframework.security.oauth2.client.registration.ClientRegistrations.getBuilder(ClientRegistrations.java:231)
+	at org.springframework.security.oauth2.client.registration.ClientRegistrations.fromIssuerLocation(ClientRegistrations.java:152)
+	at org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientPropertiesMapper.getBuilderFromIssuerIfPossible(OAuth2ClientPropertiesMapper.java:97)
+	at org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientPropertiesMapper.getClientRegistration(OAuth2ClientPropertiesMapper.java:71)
+	at org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientPropertiesMapper.lambda$asClientRegistrations$0(OAuth2ClientPropertiesMapper.java:65)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientPropertiesMapper.asClientRegistrations(OAuth2ClientPropertiesMapper.java:64)
+	at org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientRegistrationRepositoryConfiguration.clientRegistrationRepository(OAuth2ClientRegistrationRepositoryConfiguration.java:49)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+	... 120 common frames omitted
+
+2024-10-25T16:57:52.225+01:00  INFO 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Starting StarterApplication using Java 21.0.2 with PID 15525 (/Users/ababacar/apps_sources/my_trips/trips-server/target/classes started by ababacar in /Users/ababacar/apps_sources/my_trips/trips-server)
+2024-10-25T16:57:52.227+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Running with Spring Boot v3.3.3, Spring v6.1.12
+2024-10-25T16:57:52.227+01:00  INFO 15525 --- [restartedMain] com.disl.starter.StarterApplication      : The following 1 profile is active: "development"
+2024-10-25T16:57:52.245+01:00  INFO 15525 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-25T16:57:52.245+01:00  INFO 15525 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-25T16:57:52.682+01:00  INFO 15525 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-25T16:57:52.711+01:00  INFO 15525 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 9 JPA repository interfaces.
+2024-10-25T16:57:53.046+01:00  INFO 15525 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-10-25T16:57:53.051+01:00  INFO 15525 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-25T16:57:53.052+01:00  INFO 15525 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-25T16:57:53.069+01:00  INFO 15525 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-25T16:57:53.069+01:00  INFO 15525 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 823 ms
+2024-10-25T16:57:53.316+01:00  INFO 15525 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-25T16:57:53.327+01:00  INFO 15525 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-25T16:57:53.402+01:00  INFO 15525 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@45fea118
+2024-10-25T16:57:53.403+01:00  INFO 15525 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-25T16:57:53.961+01:00  INFO 15525 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T16:57:54.142+01:00 DEBUG 15525 --- [restartedMain] .JwtAuthenticationFilter$$SpringCGLIB$$0 : Filter 'jwtAuthenticationFilter' configured for use
+2024-10-25T16:57:54.143+01:00 DEBUG 15525 --- [restartedMain] o.springframework.web.filter.CorsFilter  : Filter 'corsConfigurationFilterSource' configured for use
+2024-10-25T16:57:54.278+01:00  INFO 15525 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-10-25T16:57:54.278+01:00  WARN 15525 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-25T16:57:54.414+01:00  INFO 15525 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-25T16:57:54.680+01:00 DEBUG 15525 --- [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8080/realms/trip/.well-known/openid-configuration
+2024-10-25T16:57:54.687+01:00 DEBUG 15525 --- [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-25T16:57:54.794+01:00 DEBUG 15525 --- [restartedMain] o.s.web.client.RestTemplate              : Response 200 OK
+2024-10-25T16:57:54.795+01:00 DEBUG 15525 --- [restartedMain] o.s.web.client.RestTemplate              : Reading to [java.util.Map<java.lang.String, java.lang.Object>]
+2024-10-25T16:57:54.936+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.EntryController:
+	{GET [/api/user/me]}: getUserInfo()
+	{PUT [/api/user/update-banned-status]}: updateBannedStatusManually(UpdateBannedStatusRequest)
+	{PUT [/api/user/update-verify-status]}: updateVerifyStatusManually(UpdateVerifyStatusRequest)
+	{POST [/api/change-password]}: changePassword(ChangePasswordRequest)
+	{POST [/api/sign-up]}: createUser(SignUpRequest)
+	{GET [/api/user/id/{userId}]}: findUserById(long)
+	{PUT [/api/update-user-from-admin]}: updateUserInfo(UpdateUserFromAdmin)
+	{PUT [/api/user/info/update]}: updateUserInfo(UpdateUserInfoRequest)
+	{POST [/api/refresh-token]}: refreshToken(RefreshTokenRequest)
+	{GET [/api/oauth2/login]}: socialLogin(SocialAuthType,String)
+	{POST [/api/admin-user-create]}: createAdminUser(AdminCreationRequest)
+	{POST [/api/sign-in]}: authenticateUser(SignInRequest)
+	{GET [/api/user/all]}: getAllPaginatedUsers(int,int,String,AscOrDescType,Map)
+	{POST [/api/forget-password]}: requestForgetPassword(InitialForgetPasswordRequest)
+2024-10-25T16:57:54.940+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.LogfileController:
+	{GET [/api/log-file/logfiles]}: getLog(int,int,String)
+	{GET [/api/log-file/download]}: downloadFile(String)
+	{DELETE [/api/log-file/delete]}: deleteFile(String,long)
+2024-10-25T16:57:54.941+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.PrivilegeController:
+	{GET [/api/privilege]}: getAllPrivileges()
+2024-10-25T16:57:54.942+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.RoleController:
+	{POST [/api/role/create]}: createRole(RoleCreateRequest)
+	{DELETE [/api/role/{roleId}]}: deleteRole(long)
+	{PUT [/api/role/update]}: updateRole(RoleUpdateRequest)
+	{GET [/api/role/users]}: getUserRoles(String)
+	{GET [/api/role/types]}: getRoleTypes()
+	{GET [/api/role/total]}: getTotalRoles(String)
+	{GET [/api/role/{id}]}: getRoleById(long)
+	{GET [/api/role/all]}: getPaginatedRoles(int,int,String,AscOrDescType,Map)
+2024-10-25T16:57:54.943+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.a.ForgetPasswordController:
+	{POST [/pass-reset], produces [text/html]}: resetPass(ForgetPassRequest,BindingResult,Model)
+	{GET [/resetpassword], produces [text/html]}: resetPasswordHTML(Model,String)
+2024-10-25T16:57:54.944+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.a.VerificationController:
+	{GET [/verify], produces [text/html]}: userVerifyHtml(Model,String)
+2024-10-25T16:57:54.945+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.c.c.PageController:
+	{PUT [/api/page/update]}: update(CreateUpdatePageRequest)
+	{POST [/api/page/create]}: create(CreateUpdatePageRequest)
+	{GET [/api/page/tag/{tag}]}: findByTag(String,Boolean,String,Boolean,String)
+	{DELETE [/api/page/delete/{pageId}]}: deletePage(long)
+	{GET [/api/page/total]}: getTotal(Boolean)
+	{GET [/api/page/predefine-tags]}: predefineTags()
+	{PUT [/api/page/{pageId}/section/update]}: updateSectionByPage(long,CreateUpdateSectionRequest)
+	{GET [/api/page/all]}: getAllPagePaginated(int,int,String,AscOrDescType,Boolean)
+	{POST [/api/page/{pageId}/section/add]}: addSectionIntoPage(long,CreateUpdateSectionRequest)
+	{DELETE [/api/page/{pageId}/delete/{sectionId}]}: deleteSectionByPage(long,long)
+	{GET [/api/page/{pageId}/section/id/{sectionId}]}: findSectionById(long,long)
+2024-10-25T16:57:54.947+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.d.c.DbFileController:
+	{GET [/api/db-file/id/{id}]}: getFile(long)
+	{POST [/api/db-file/upload], consumes [multipart/form-data]}: uploadFile(MultipartFile,FileUploadType,String)
+2024-10-25T16:57:54.948+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.n.c.NotificationController:
+	{GET [/api/notification/unread-counter]}: getUnreadNotificationCounter()
+	{GET [/api/notification/all]}: getAllNotificationByUserType(int,int,String,AscOrDescType)
+	{POST [/api/notification/create-and-push]}: Create(SendNotificationRequest)
+	{POST [/api/notification/mark-as-read]}: markNotificationAsRead()
+2024-10-25T16:57:54.948+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.DashboardController:
+	{GET [/dashboard]}: getDashboard()
+2024-10-25T16:57:54.948+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.LoginController:
+	{GET [/login]}: login()
+	{GET [/login-error]}: errorLogin(Map)
+2024-10-25T16:57:54.949+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.StarterErrorController:
+	{ [/error], produces [text/html]}: handleError(HttpServletRequest)
+	{GET [/permission-denied]}: permissionDenied()
+2024-10-25T16:57:54.954+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+2024-10-25T16:57:54.954+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2024-10-25T16:57:54.955+01:00 TRACE 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2024-10-25T16:57:54.956+01:00 DEBUG 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 55 mappings in 'requestMappingHandlerMapping'
+2024-10-25T16:57:54.969+01:00 DEBUG 15525 --- [restartedMain] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2024-10-25T16:57:54.978+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/resources/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/static/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/css/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/js/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/images/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/scripts/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/build/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/dist/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.986+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/docs/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T16:57:54.987+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/*swagger-initializer.js] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-25T16:57:54.987+01:00 TRACE 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-25T16:57:54.987+01:00 DEBUG 15525 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/resources/**, /static/**, /css/**, /js/**, /images/**, /webjars/**, /scripts/**, /build/**, /dist/**, /docs/**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-10-25T16:57:55.053+01:00  INFO 15525 --- [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-10-25T16:57:55.058+01:00 DEBUG 15525 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthenticationFilter$$SpringCGLIB$$0, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-25T16:57:55.125+01:00 DEBUG 15525 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-25T16:57:55.149+01:00 DEBUG 15525 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 4 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-25T16:57:55.437+01:00  INFO 15525 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-25T16:57:55.458+01:00  INFO 15525 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-10-25T16:57:55.466+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_CREATE]
+2024-10-25T16:57:55.518+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@dff8658
+2024-10-25T16:57:55.518+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_UPDATE]
+2024-10-25T16:57:55.520+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@7284a969
+2024-10-25T16:57:55.520+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_DELETE]
+2024-10-25T16:57:55.521+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@68563fb
+2024-10-25T16:57:55.521+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_DELETE]
+2024-10-25T16:57:55.522+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@6ba23eec
+2024-10-25T16:57:55.522+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_CREATE]
+2024-10-25T16:57:55.523+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@56cc81dc
+2024-10-25T16:57:55.523+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE]
+2024-10-25T16:57:55.524+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@39b4f566
+2024-10-25T16:57:55.524+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [GENERAL]
+2024-10-25T16:57:55.525+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@6d1aafd8
+2024-10-25T16:57:55.525+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_READ]
+2024-10-25T16:57:55.526+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@5fb4e7c3
+2024-10-25T16:57:55.526+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [NOTIFICATION_SEND]
+2024-10-25T16:57:55.527+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@7f451a79
+2024-10-25T16:57:55.527+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_READ]
+2024-10-25T16:57:55.528+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@7e6febc0
+2024-10-25T16:57:55.528+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE_FROM_ADMIN]
+2024-10-25T16:57:55.529+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@58ac73cd
+2024-10-25T16:57:55.529+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T16:57:55.538+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@1cbf19af
+2024-10-25T16:57:55.538+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T16:57:55.540+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@7f1c2c4
+2024-10-25T16:57:55.540+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.saveRole() with argument[s] = [com.disl.starter.entities.Role@7f1c2c4]
+2024-10-25T16:57:55.555+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.saveRole() with result = com.disl.starter.entities.Role@4732d9f
+2024-10-25T16:57:55.555+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.findByEmail() with argument[s] = [admin@trip.com]
+2024-10-25T16:57:55.560+01:00 DEBUG 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.findByEmail() with result = com.disl.starter.entities.User@5fbeb47
+2024-10-25T16:57:55.563+01:00  INFO 15525 --- [restartedMain] com.disl.starter.StarterApplication      : Started StarterApplication in 3.592 seconds (process running for 4.356)
+2024-10-25T17:05:42.484+01:00  INFO 15525 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-25T17:05:42.485+01:00  INFO 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-25T17:05:42.485+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@39911c03
+2024-10-25T17:05:42.485+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@3ab435af
+2024-10-25T17:05:42.485+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.theme.FixedThemeResolver@2a4efaf6
+2024-10-25T17:05:42.488+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected DefaultRequestToViewNameTranslator
+2024-10-25T17:05:42.488+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected SessionFlashMapManager
+2024-10-25T17:05:42.488+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-10-25T17:05:42.488+01:00  INFO 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-10-25T17:05:42.497+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/sign-in
+2024-10-25T17:05:42.502+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-10-25T17:05:42.503+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/sign-in
+2024-10-25T17:05:42.505+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/sign-in", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2024-10-25T17:05:42.506+01:00 TRACE 15525 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.disl.starter.controllers.EntryController#authenticateUser(SignInRequest)
+2024-10-25T17:05:42.533+01:00 TRACE 15525 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.disl.starter.models.requests.SignInRequest@44af88b2]
+2024-10-25T17:05:42.537+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.method.HandlerMethod             : Arguments: [com.disl.starter.models.requests.SignInRequest@44af88b2]
+2024-10-25T17:05:42.538+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.controllers.EntryController.authenticateUser() with argument[s] = [com.disl.starter.models.requests.SignInRequest@44af88b2]
+2024-10-25T17:05:42.538+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.signIn() with argument[s] = [com.disl.starter.models.requests.SignInRequest@44af88b2]
+2024-10-25T17:05:42.622+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.security.CustomUserDetailsService.loadUserByUsername() with argument[s] = [ababacar@trip.com]
+2024-10-25T17:05:42.625+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.security.CustomUserDetailsService.loadUserByUsername() with result = com.disl.starter.security.CustomUserDetails@2318b0b8
+2024-10-25T17:05:42.709+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] c.d.starter.security.SecurityConfig$1    : Authenticated user
+2024-10-25T17:05:42.739+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RefreshTokenService.createRefreshToken() with argument[s] = [52]
+2024-10-25T17:05:42.794+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RefreshTokenService.createRefreshToken() with result = com.disl.starter.entities.RefreshToken@65d0605
+2024-10-25T17:05:42.795+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.signIn() with result = com.disl.starter.models.responses.TokenResponse@3afb6e19
+2024-10-25T17:05:42.795+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.controllers.EntryController.authenticateUser() with result = <200 OK OK,com.disl.starter.models.Response@253306c6,[]>
+2024-10-25T17:05:42.804+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-10-25T17:05:42.805+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.disl.starter.models.Response@253306c6]
+2024-10-25T17:05:42.815+01:00 TRACE 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2024-10-25T17:05:42.815+01:00 DEBUG 15525 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK, headers={masked}
+2024-10-25T17:10:26.387+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_CREATE]
+2024-10-25T17:10:26.413+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@2950f92
+2024-10-25T17:10:26.413+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_UPDATE]
+2024-10-25T17:10:26.416+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@949ec06
+2024-10-25T17:10:26.416+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_DELETE]
+2024-10-25T17:10:26.420+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@1b43f3a7
+2024-10-25T17:10:26.421+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_DELETE]
+2024-10-25T17:10:26.424+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@113f5c31
+2024-10-25T17:10:26.424+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_CREATE]
+2024-10-25T17:10:26.427+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@3fa0ec9
+2024-10-25T17:10:26.427+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE]
+2024-10-25T17:10:26.431+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@ca8de0c
+2024-10-25T17:10:26.431+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [GENERAL]
+2024-10-25T17:10:26.434+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@5b850955
+2024-10-25T17:10:26.434+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_READ]
+2024-10-25T17:10:26.438+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@2a1ff8f7
+2024-10-25T17:10:26.438+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [NOTIFICATION_SEND]
+2024-10-25T17:10:26.440+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@55710ae
+2024-10-25T17:10:26.441+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_READ]
+2024-10-25T17:10:26.443+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@72c744f4
+2024-10-25T17:10:26.445+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE_FROM_ADMIN]
+2024-10-25T17:10:26.448+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@71082f69
+2024-10-25T17:10:26.449+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T17:10:26.462+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@74cfcf91
+2024-10-25T17:10:26.462+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T17:10:26.470+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@30746b97
+2024-10-25T17:10:26.470+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.saveRole() with argument[s] = [com.disl.starter.entities.Role@30746b97]
+2024-10-25T17:10:26.479+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.saveRole() with result = com.disl.starter.entities.Role@21c06de0
+2024-10-25T17:10:26.479+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.findByEmail() with argument[s] = [admin@trip.com]
+2024-10-25T17:10:26.488+01:00 DEBUG 15525 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.findByEmail() with result = com.disl.starter.entities.User@2e2a6658
+2024-10-25T17:10:26.504+01:00  INFO 15525 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T17:10:26.507+01:00  INFO 15525 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-25T17:10:26.518+01:00  INFO 15525 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-25T17:10:28.895+01:00  INFO 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Starting StarterApplication using Java 21.0.2 with PID 15873 (/Users/ababacar/apps_sources/my_trips/trips-server/target/classes started by ababacar in /Users/ababacar/apps_sources/my_trips/trips-server)
+2024-10-25T17:10:28.897+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Running with Spring Boot v3.3.3, Spring v6.1.12
+2024-10-25T17:10:28.897+01:00  INFO 15873 --- [restartedMain] com.disl.starter.StarterApplication      : The following 1 profile is active: "development"
+2024-10-25T17:10:28.918+01:00  INFO 15873 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-25T17:10:28.918+01:00  INFO 15873 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-25T17:10:29.291+01:00  INFO 15873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-25T17:10:29.321+01:00  INFO 15873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 9 JPA repository interfaces.
+2024-10-25T17:10:29.679+01:00  INFO 15873 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-10-25T17:10:29.686+01:00  INFO 15873 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-25T17:10:29.686+01:00  INFO 15873 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-10-25T17:10:29.705+01:00  INFO 15873 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-25T17:10:29.705+01:00  INFO 15873 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 786 ms
+2024-10-25T17:10:30.002+01:00  INFO 15873 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-25T17:10:30.013+01:00  INFO 15873 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-25T17:10:30.085+01:00  INFO 15873 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@414ff4e4
+2024-10-25T17:10:30.085+01:00  INFO 15873 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-25T17:10:30.615+01:00  INFO 15873 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T17:10:30.788+01:00 DEBUG 15873 --- [restartedMain] .JwtAuthenticationFilter$$SpringCGLIB$$0 : Filter 'jwtAuthenticationFilter' configured for use
+2024-10-25T17:10:30.789+01:00 DEBUG 15873 --- [restartedMain] o.springframework.web.filter.CorsFilter  : Filter 'corsConfigurationFilterSource' configured for use
+2024-10-25T17:10:30.916+01:00  INFO 15873 --- [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-10-25T17:10:30.917+01:00  WARN 15873 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-10-25T17:10:31.052+01:00  INFO 15873 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-25T17:10:31.318+01:00 DEBUG 15873 --- [restartedMain] o.s.web.client.RestTemplate              : HTTP GET http://localhost:8080/realms/trip/.well-known/openid-configuration
+2024-10-25T17:10:31.324+01:00 DEBUG 15873 --- [restartedMain] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-25T17:10:31.448+01:00 DEBUG 15873 --- [restartedMain] o.s.web.client.RestTemplate              : Response 200 OK
+2024-10-25T17:10:31.449+01:00 DEBUG 15873 --- [restartedMain] o.s.web.client.RestTemplate              : Reading to [java.util.Map<java.lang.String, java.lang.Object>]
+2024-10-25T17:10:31.583+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.EntryController:
+	{GET [/api/user/me]}: getUserInfo()
+	{PUT [/api/user/update-banned-status]}: updateBannedStatusManually(UpdateBannedStatusRequest)
+	{PUT [/api/user/update-verify-status]}: updateVerifyStatusManually(UpdateVerifyStatusRequest)
+	{POST [/api/change-password]}: changePassword(ChangePasswordRequest)
+	{POST [/api/sign-up]}: createUser(SignUpRequest)
+	{GET [/api/user/id/{userId}]}: findUserById(long)
+	{PUT [/api/update-user-from-admin]}: updateUserInfo(UpdateUserFromAdmin)
+	{PUT [/api/user/info/update]}: updateUserInfo(UpdateUserInfoRequest)
+	{POST [/api/refresh-token]}: refreshToken(RefreshTokenRequest)
+	{GET [/api/oauth2/login]}: socialLogin(SocialAuthType,String)
+	{POST [/api/admin-user-create]}: createAdminUser(AdminCreationRequest)
+	{POST [/api/sign-in]}: authenticateUser(SignInRequest)
+	{GET [/api/user/all]}: getAllPaginatedUsers(int,int,String,AscOrDescType,Map)
+	{POST [/api/forget-password]}: requestForgetPassword(InitialForgetPasswordRequest)
+2024-10-25T17:10:31.588+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.LogfileController:
+	{GET [/api/log-file/logfiles]}: getLog(int,int,String)
+	{GET [/api/log-file/download]}: downloadFile(String)
+	{DELETE [/api/log-file/delete]}: deleteFile(String,long)
+2024-10-25T17:10:31.588+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.PrivilegeController:
+	{GET [/api/privilege]}: getAllPrivileges()
+2024-10-25T17:10:31.589+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.RoleController:
+	{POST [/api/role/create]}: createRole(RoleCreateRequest)
+	{DELETE [/api/role/{roleId}]}: deleteRole(long)
+	{PUT [/api/role/update]}: updateRole(RoleUpdateRequest)
+	{GET [/api/role/users]}: getUserRoles(String)
+	{GET [/api/role/types]}: getRoleTypes()
+	{GET [/api/role/total]}: getTotalRoles(String)
+	{GET [/api/role/{id}]}: getRoleById(long)
+	{GET [/api/role/all]}: getPaginatedRoles(int,int,String,AscOrDescType,Map)
+2024-10-25T17:10:31.590+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.a.ForgetPasswordController:
+	{POST [/pass-reset], produces [text/html]}: resetPass(ForgetPassRequest,BindingResult,Model)
+	{GET [/resetpassword], produces [text/html]}: resetPasswordHTML(Model,String)
+2024-10-25T17:10:31.591+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.c.a.VerificationController:
+	{GET [/verify], produces [text/html]}: userVerifyHtml(Model,String)
+2024-10-25T17:10:31.592+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.c.c.PageController:
+	{PUT [/api/page/update]}: update(CreateUpdatePageRequest)
+	{POST [/api/page/create]}: create(CreateUpdatePageRequest)
+	{GET [/api/page/tag/{tag}]}: findByTag(String,Boolean,String,Boolean,String)
+	{DELETE [/api/page/delete/{pageId}]}: deletePage(long)
+	{GET [/api/page/total]}: getTotal(Boolean)
+	{GET [/api/page/predefine-tags]}: predefineTags()
+	{PUT [/api/page/{pageId}/section/update]}: updateSectionByPage(long,CreateUpdateSectionRequest)
+	{GET [/api/page/all]}: getAllPagePaginated(int,int,String,AscOrDescType,Boolean)
+	{POST [/api/page/{pageId}/section/add]}: addSectionIntoPage(long,CreateUpdateSectionRequest)
+	{DELETE [/api/page/{pageId}/delete/{sectionId}]}: deleteSectionByPage(long,long)
+	{GET [/api/page/{pageId}/section/id/{sectionId}]}: findSectionById(long,long)
+2024-10-25T17:10:31.594+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.d.c.DbFileController:
+	{GET [/api/db-file/id/{id}]}: getFile(long)
+	{POST [/api/db-file/upload], consumes [multipart/form-data]}: uploadFile(MultipartFile,FileUploadType,String)
+2024-10-25T17:10:31.595+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.f.n.c.NotificationController:
+	{GET [/api/notification/unread-counter]}: getUnreadNotificationCounter()
+	{GET [/api/notification/all]}: getAllNotificationByUserType(int,int,String,AscOrDescType)
+	{POST [/api/notification/create-and-push]}: Create(SendNotificationRequest)
+	{POST [/api/notification/mark-as-read]}: markNotificationAsRead()
+2024-10-25T17:10:31.595+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.DashboardController:
+	{GET [/dashboard]}: getDashboard()
+2024-10-25T17:10:31.596+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.LoginController:
+	{GET [/login]}: login()
+	{GET [/login-error]}: errorLogin(Map)
+2024-10-25T17:10:31.596+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.d.s.t.c.StarterErrorController:
+	{ [/error], produces [text/html]}: handleError(HttpServletRequest)
+	{GET [/permission-denied]}: permissionDenied()
+2024-10-25T17:10:31.601+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+2024-10-25T17:10:31.602+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2024-10-25T17:10:31.602+01:00 TRACE 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2024-10-25T17:10:31.603+01:00 DEBUG 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 55 mappings in 'requestMappingHandlerMapping'
+2024-10-25T17:10:31.616+01:00 DEBUG 15873 --- [restartedMain] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2024-10-25T17:10:31.625+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2024-10-25T17:10:31.632+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/resources/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/static/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/css/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/js/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/images/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/scripts/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/build/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/dist/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/docs/**] onto ResourceHttpRequestHandler [ServletContext [/public], classpath [static/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/*swagger-initializer.js] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-25T17:10:31.633+01:00 TRACE 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-25T17:10:31.633+01:00 DEBUG 15873 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/resources/**, /static/**, /css/**, /js/**, /images/**, /webjars/**, /scripts/**, /build/**, /dist/**, /docs/**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-10-25T17:10:31.696+01:00  INFO 15873 --- [restartedMain] o.s.s.w.a.c.ChannelProcessingFilter      : Validated configuration attributes
+2024-10-25T17:10:31.702+01:00 DEBUG 15873 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, ChannelProcessingFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtAuthenticationFilter$$SpringCGLIB$$0, BearerTokenAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2024-10-25T17:10:31.740+01:00 DEBUG 15873 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-25T17:10:31.763+01:00 DEBUG 15873 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 4 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-25T17:10:32.010+01:00  INFO 15873 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-10-25T17:10:32.030+01:00  INFO 15873 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2024-10-25T17:10:32.037+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_CREATE]
+2024-10-25T17:10:32.103+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@780e4732
+2024-10-25T17:10:32.103+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_UPDATE]
+2024-10-25T17:10:32.105+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@569cfe8c
+2024-10-25T17:10:32.106+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_DELETE]
+2024-10-25T17:10:32.108+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@22956840
+2024-10-25T17:10:32.109+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_DELETE]
+2024-10-25T17:10:32.111+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@4d2b262c
+2024-10-25T17:10:32.111+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_CREATE]
+2024-10-25T17:10:32.113+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@2f56aed8
+2024-10-25T17:10:32.113+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE]
+2024-10-25T17:10:32.118+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@166394f1
+2024-10-25T17:10:32.119+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [GENERAL]
+2024-10-25T17:10:32.122+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@23a85608
+2024-10-25T17:10:32.122+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_READ]
+2024-10-25T17:10:32.128+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@240b9795
+2024-10-25T17:10:32.128+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [NOTIFICATION_SEND]
+2024-10-25T17:10:32.132+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@2bd006e0
+2024-10-25T17:10:32.132+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_READ]
+2024-10-25T17:10:32.135+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@54bc08e6
+2024-10-25T17:10:32.135+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE_FROM_ADMIN]
+2024-10-25T17:10:32.138+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@6b468b77
+2024-10-25T17:10:32.138+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T17:10:32.164+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@27236605
+2024-10-25T17:10:32.164+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T17:10:32.179+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@3b98d7ec
+2024-10-25T17:10:32.179+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.saveRole() with argument[s] = [com.disl.starter.entities.Role@3b98d7ec]
+2024-10-25T17:10:32.240+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.saveRole() with result = com.disl.starter.entities.Role@361fd7b0
+2024-10-25T17:10:32.247+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.findByEmail() with argument[s] = [admin@trip.com]
+2024-10-25T17:10:32.264+01:00 DEBUG 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.findByEmail() with result = com.disl.starter.entities.User@741e1f9b
+2024-10-25T17:10:32.267+01:00  INFO 15873 --- [restartedMain] com.disl.starter.StarterApplication      : Started StarterApplication in 3.636 seconds (process running for 4.055)
+2024-10-25T17:11:20.088+01:00  INFO 15873 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-25T17:11:20.088+01:00  INFO 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-25T17:11:20.089+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@59eb3a80
+2024-10-25T17:11:20.089+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@55a170c6
+2024-10-25T17:11:20.089+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.theme.FixedThemeResolver@714812df
+2024-10-25T17:11:20.092+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected DefaultRequestToViewNameTranslator
+2024-10-25T17:11:20.092+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected SessionFlashMapManager
+2024-10-25T17:11:20.092+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-10-25T17:11:20.092+01:00  INFO 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-10-25T17:11:20.101+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/sign-in
+2024-10-25T17:11:20.113+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2024-10-25T17:11:20.115+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/sign-in
+2024-10-25T17:11:20.119+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/sign-in", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2024-10-25T17:11:20.120+01:00 TRACE 15873 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.disl.starter.controllers.EntryController#authenticateUser(SignInRequest)
+2024-10-25T17:11:20.147+01:00 TRACE 15873 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.disl.starter.models.requests.SignInRequest@675feafb]
+2024-10-25T17:11:20.150+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.method.HandlerMethod             : Arguments: [com.disl.starter.models.requests.SignInRequest@675feafb]
+2024-10-25T17:11:20.151+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.controllers.EntryController.authenticateUser() with argument[s] = [com.disl.starter.models.requests.SignInRequest@675feafb]
+2024-10-25T17:11:20.151+01:00  INFO 15873 --- [http-nio-8082-exec-2] c.d.starter.controllers.EntryController  : Function={authenticateUser}, loginRequest=com.disl.starter.models.requests.SignInRequest@675feafb
+2024-10-25T17:11:20.151+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.signIn() with argument[s] = [com.disl.starter.models.requests.SignInRequest@675feafb]
+2024-10-25T17:11:20.246+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.security.CustomUserDetailsService.loadUserByUsername() with argument[s] = [ababacar@trip.com]
+2024-10-25T17:11:20.249+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.security.CustomUserDetailsService.loadUserByUsername() with result = com.disl.starter.security.CustomUserDetails@664ba055
+2024-10-25T17:11:20.350+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] c.d.starter.security.SecurityConfig$1    : Authenticated user
+2024-10-25T17:11:20.375+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RefreshTokenService.createRefreshToken() with argument[s] = [52]
+2024-10-25T17:11:20.412+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RefreshTokenService.createRefreshToken() with result = com.disl.starter.entities.RefreshToken@76a4be16
+2024-10-25T17:11:20.412+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.signIn() with result = com.disl.starter.models.responses.TokenResponse@32f6730f
+2024-10-25T17:11:20.413+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] com.disl.starter.StarterApplication      : Exit: com.disl.starter.controllers.EntryController.authenticateUser() with result = <200 OK OK,com.disl.starter.models.Response@5098156,[]>
+2024-10-25T17:11:20.422+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-10-25T17:11:20.422+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.disl.starter.models.Response@5098156]
+2024-10-25T17:11:20.432+01:00 TRACE 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2024-10-25T17:11:20.432+01:00 DEBUG 15873 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK, headers={masked}
+2024-10-25T17:15:28.464+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_CREATE]
+2024-10-25T17:15:28.485+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@18a8d341
+2024-10-25T17:15:28.485+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_UPDATE]
+2024-10-25T17:15:28.486+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@3b0da73f
+2024-10-25T17:15:28.487+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_DELETE]
+2024-10-25T17:15:28.488+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@55e0f3c2
+2024-10-25T17:15:28.488+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_DELETE]
+2024-10-25T17:15:28.490+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@457ac95b
+2024-10-25T17:15:28.490+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_CREATE]
+2024-10-25T17:15:28.491+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@5cd54b40
+2024-10-25T17:15:28.491+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE]
+2024-10-25T17:15:28.493+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@60051d3
+2024-10-25T17:15:28.493+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [GENERAL]
+2024-10-25T17:15:28.494+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@23f0ec0c
+2024-10-25T17:15:28.494+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_READ]
+2024-10-25T17:15:28.495+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@6d459686
+2024-10-25T17:15:28.495+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [NOTIFICATION_SEND]
+2024-10-25T17:15:28.496+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@721af40
+2024-10-25T17:15:28.496+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [ROLE_READ]
+2024-10-25T17:15:28.498+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@8310414
+2024-10-25T17:15:28.498+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with argument[s] = [USER_UPDATE_FROM_ADMIN]
+2024-10-25T17:15:28.499+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.PrivilegeService.findByPrivilegeName() with result = com.disl.starter.entities.Privilege@56bd9723
+2024-10-25T17:15:28.499+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T17:15:28.507+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@237037b7
+2024-10-25T17:15:28.507+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.findRoleByName() with argument[s] = [SUPER ADMIN]
+2024-10-25T17:15:28.510+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.findRoleByName() with result = com.disl.starter.entities.Role@36a02cac
+2024-10-25T17:15:28.510+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.RoleService.saveRole() with argument[s] = [com.disl.starter.entities.Role@36a02cac]
+2024-10-25T17:15:28.515+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.RoleService.saveRole() with result = com.disl.starter.entities.Role@58101950
+2024-10-25T17:15:28.515+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Enter: com.disl.starter.services.UserService.findByEmail() with argument[s] = [admin@trip.com]
+2024-10-25T17:15:28.518+01:00 DEBUG 15873 --- [SpringApplicationShutdownHook] com.disl.starter.StarterApplication      : Exit: com.disl.starter.services.UserService.findByEmail() with result = com.disl.starter.entities.User@5f1d287c
+2024-10-25T17:15:28.531+01:00  INFO 15873 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-25T17:15:28.533+01:00  INFO 15873 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-25T17:15:28.535+01:00  INFO 15873 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

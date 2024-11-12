@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "Start minikube..."
+chmod +x start-minikube.sh
+
+echo "Set privilege execution of minikube..."
+./start-minikube.sh
+
 echo "Building and deploying Trips application on Kubernetes..."
 
 # Navigate to the postgres container directory
@@ -32,6 +38,7 @@ chmod +x keycloak-entrypoint.sh
 
 # Apply Keycloak configurations
 kubectl apply -f configMap.yaml
+kubectl apply -f keycloak-secrets.yaml
 kubectl apply -f keycloak-deployment.yaml
 kubectl apply -f keycloak-deployment.yaml
 kubectl apply -f keycloak-service.yaml

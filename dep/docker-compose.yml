@@ -2,7 +2,7 @@ version: "4"
 
 services:
   postgres:
-    image: postgres:16.3
+    image: postgres:latest
     container_name: postgres
     environment:
       POSTGRES_USER: "${POSTGRES_DOCKER_USER}"
@@ -12,7 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     networks:
-      - pg_network
+      - postgres_network
     ports:
       - "${POSTGRES_DOCKER_PORT}:${POSTGRES_LOCAL_PORT}"
 
@@ -30,7 +30,7 @@ services:
       - pgadmin:/var/lib/pgadmin
     restart: unless-stopped
     networks:
-      - pg_network
+      - postgres_network
 
   keycloak:
     image: quay.io/keycloak/keycloak:25.0.1
@@ -61,24 +61,17 @@ services:
     depends_on:
       - postgres
     networks:
-      - kc_network
+      - keycloak_network
     volumes:
       - ./my-realm.json:/opt/keycloak/data/import/my-realm.json
       - ./keycloak-entrypoint.sh:/opt/keycloak/bin/keycloak-entrypoint.sh
     entrypoint: [ "/opt/keycloak/bin/keycloak-entrypoint.sh" ]
 
-  mail-dev:
-    container_name: mail_dev
-    image: maildev/maildev
-    ports:
-      - 1080:1080
-      - 1025:1025
-
   mongo:
     image: mongo:latest
     container_name: mongo-db
     ports:
-      - "27017:27017"
+      - "${MONGO_DOCKER_PORT}:${MONGO_LOCAL_PORT}"
     environment:
       MONGO_INITDB_ROOT_USERNAME: "${MONGO_ROOT_USER}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGO_ROOT_PASSWORD}"
@@ -92,14 +85,15 @@ services:
     image: mongo-express:latest
     container_name: mongo-express
     ports:
-      - "8081:8081"
+      - "${MONGO_EXPRESS_DOCKER_PORT}:${MONGO_EXPRESS_LOCAL_PORT}"
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo-db
       ME_CONFIG_MONGODB_ADMINUSERNAME: "${MONGO_ROOT_USER}"
       ME_CONFIG_MONGODB_ADMINPASSWORD: "${MONGO_ROOT_PASSWORD}"
       ME_CONFIG_BASICAUTH_USERNAME: "${MONGOEXPRESS_LOGIN}"
       ME_CONFIG_BASICAUTH_PASSWORD: "${MONGOEXPRESS_PASSWORD}"
-      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_PORT: "${MONGO_DOCKER_PORT}"
+    restart: unless-stopped
     depends_on:
       - mongo
     networks:
@@ -107,16 +101,80 @@ services:
     volumes:
       - mongo-data:/data/db
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+      - TERM=linux
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-polystat-panel
+    ports:
+      - "${GRAFANA_DOCKER_PORT}:${GRAFANA_LOCAL_PORT}"
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.3
+    container_name: elasticsearch
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.type=single-node"
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.3.3
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.3.3
+    container_name: logstash
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    ports:
+      - "5044:5044"
+      - "5001:5001/tcp"
+      - "5001:5001/udp"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
 volumes:
   postgres_data:
     driver: local
   pgadmin:
+    driver: local
   mongo-data:
+  grafana_data:
+  elasticsearch_data:
+    driver: local
 
 networks:
   mongo_network:
     driver: bridge
-  pg_network:
+  postgres_network:
     driver: bridge
-  kc_network:
+  keycloak_network:
+    driver: bridge
+  elastic:
     driver: bridge

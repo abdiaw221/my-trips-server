@@ -2,7 +2,11 @@ package com.disl.starter.models.requests;
 
 import com.disl.starter.enums.RoleType;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public class RoleUpdateRequest {
 
 	private long id;
@@ -13,44 +17,4 @@ public class RoleUpdateRequest {
 	@NotBlank
 	private String roleName;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public long[] getPrevilegeId() {
-		return previlegeId;
-	}
-
-	public void setPrevilegeId(long[] previlegeId) {
-		this.previlegeId = previlegeId;
-	}
-
-	public RoleType getRoleType() {
-		return roleType;
-	}
-
-	public void setRoleType(RoleType roleType) {
-		this.roleType = roleType;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
 }

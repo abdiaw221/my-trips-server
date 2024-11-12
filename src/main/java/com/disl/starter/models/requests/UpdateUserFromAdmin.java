@@ -1,23 +1,11 @@
 package com.disl.starter.models.requests;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class UpdateUserFromAdmin {
-
-    private String name;
-    private Long userId;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+  private String name;
+  private Long userId;
 }

@@ -5,7 +5,7 @@ set -e
 /opt/keycloak/bin/kc.sh start --spi-theme-dynamic-enabled=true &
 
 # Wait for Keycloak to start
-until $(curl --output /dev/null --silent --head --fail http://localhost:8080); do
+until $(curl --output /dev/null --silent --head --fail http://localhost:8084); do
   echo 'Waiting for Keycloak to start...'
   sleep 5
 done

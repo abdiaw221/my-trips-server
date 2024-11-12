@@ -51,7 +51,7 @@ public class LogfileController {
         this.generateFileList(getLogFilePath(), files);
         List<ApplicationLog> prWireLogList = new ArrayList<>();
 
-        if (keyword != null && keyword.length() > 0) {
+        if (keyword != null && !keyword.isEmpty()) {
             for (File file : files) {
                 if (file.getName().contains(keyword) && !file.isDirectory()) {
                     ApplicationLog prWireLog = new ApplicationLog();

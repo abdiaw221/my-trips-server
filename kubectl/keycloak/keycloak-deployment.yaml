@@ -14,16 +14,57 @@ spec:
     spec:
       containers:
         - name: keycloak
-          image: jboss/keycloak:latest
+          image: quay.io/keycloak/keycloak:latest
+          env:
+            - name: KEYCLOAK_USER
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: KEYCLOAK_USER
+            - name: KEYCLOAK_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: KEYCLOAK_PASSWORD
+            - name: DB_VENDOR
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: DB_VENDOR
+            - name: DB_ADDR
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: DB_ADDR
+            - name: DB_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: DB_DATABASE
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: DB_PASSWORD
           volumeMounts:
+            - name: keycloak-config
+              mountPath: /opt/keycloak/config
             - name: keycloak-entrypoint
-              mountPath: /opt/jboss/tools/keycloak-entrypoint.sh
+              mountPath: /opt/keycloak/bin/kc.sh
               subPath: keycloak-entrypoint.sh
               readOnly: true
       volumes:
+        - name: keycloak-config
+          configMap:
+            name: keycloak-config
         - name: keycloak-entrypoint
           configMap:
-            name: keycloak-entrypoint
+            name: keycloak-config
             items:
               - key: keycloak-entrypoint.sh
                 path: keycloak-entrypoint.sh
